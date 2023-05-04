@@ -186,7 +186,7 @@ public class ComponentHandler {
             ItemStack[] inventoryItems = villager.getInventory().getContents();
             for (ItemStack items : inventoryItems) {
                 if (items == null) continue;
-                villagerInventory = villagerInventory.append(miniMessage.deserialize(inventoryOutput, Placeholder.parsed("item", items.getType().toString()), Placeholder.parsed("amount", String.valueOf(items.getAmount()))));
+                villagerInventory = villagerInventory.append(miniMessage.deserialize(inventoryOutput, Placeholder.parsed("item", items.getType().toString().toLowerCase()), Placeholder.parsed("amount", String.valueOf(items.getAmount()))));
             }
             villagerInventoryFinal = miniMessage.deserialize(VIMessage.VILLAGER_INVENTORY.getMessage(), Placeholder.component("contents", villagerInventory));
         }
